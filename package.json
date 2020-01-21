@@ -4,15 +4,8 @@
 	"description": "Demonstraton of an shopping website using AngularJS, NodeJS and ExpressJS",
 	"main": "server.js",
 	"scripts": {
-		"start": "node server",
-		"lint": "eslint template/app/"
+		"start": "node server"
 	},
-	"keywords": [
-		"e-commerce",
-		"nodejs",
-		"angularjs",
-		"expressjs"
-	],
 	"author": "Red Massk",
 	"license": "MIT",
 	"dependencies": {
