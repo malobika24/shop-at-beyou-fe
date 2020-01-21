@@ -1,5 +1,5 @@
 {
-	"name": "shop-at-beyou",
+	"name": "shop-at-beyou-fe",
 	"version": "1.0.0",
 	"description": "Demonstraton of an shopping website using AngularJS, NodeJS and ExpressJS",
 	"main": "server.js",
@@ -8,7 +8,7 @@
 		"postinstall": "bower install",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "node server",
-		"lint": "eslint client/app/"
+		"lint": "eslint template/app/"
 	},
 	"keywords": [
 		"e-commerce",
