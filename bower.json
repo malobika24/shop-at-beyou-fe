@@ -1,5 +1,5 @@
 {
-  "name": "shop-at-beyou",
+  "name": "shop-at-beyou-fe",
   "description": "Demonstraton of an shopping website using AngularJS, NodeJS and ExpressJS",
   "main": "server.js",
   "authors": [
