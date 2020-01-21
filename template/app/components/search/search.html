@@ -1,0 +1,116 @@
+<div class="container">
+
+	<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="/">Home</a></li>
+			<li class="breadcrumb-item active" aria-current="page" id="navLink">All</li>
+		</ol>
+	</nav>
+
+	<!-- <div class="row">
+		<div class="col-md-12">
+			<ol class="breadcrumb">
+				<li><a href="/">Home</a></li>
+				<li>Search</li>
+				<li class="active">"{{queryString}}"</li>
+			</ol>
+		</div>
+	</div> -->
+
+
+	<div class="row">
+
+		<div class="col-lg-3">
+			<h1></h1>
+			<div></div>
+			<br />
+			<div class="list-group">
+				<a ui-sref="searchByGender({gender:'All'})" class="list-group-item">All</a>
+				<a ui-sref="searchByGender({gender:'Men'})" class="list-group-item">Men</a>
+				<a ui-sref="searchByGender({gender:'Women'})"
+					class="list-group-item">Women</a>
+			</div>
+
+		</div>
+		<!-- /.col-lg-3 -->
+
+		<div class="col-lg-9">
+
+
+			<div class="col">
+				<div id="loader" style="display: none">
+					<div class="d-flex justify-content-center">
+						<div class="spinner-grow text-primary" role="status">
+							<span class="sr-only">Loading...</span>
+						</div>
+						<div class="spinner-grow text-secondary" role="status">
+							<span class="sr-only">Loading...</span>
+						</div>
+						<div class="spinner-grow text-success" role="status">
+							<span class="sr-only">Loading...</span>
+						</div>
+						<div class="spinner-grow text-danger" role="status">
+							<span class="sr-only">Loading...</span>
+						</div>
+						<div class="spinner-grow text-warning" role="status">
+							<span class="sr-only">Loading...</span>
+						</div>
+						<div class="spinner-grow text-info" role="status">
+							<span class="sr-only">Loading...</span>
+						</div>
+						<div class="spinner-grow text-light" role="status">
+							<span class="sr-only">Loading...</span>
+						</div>
+						<div class="spinner-grow text-dark" role="status">
+							<span class="sr-only">Loading...</span>
+						</div>
+					</div>
+				</div>
+				<div class="col align-items-center" ng-if="noResults == 'true'">
+					<p class="text-muted">Sorry!! No matching products.</p>
+				</div>
+			</div>
+			<div id="results">
+				<div class="row">
+					<div ng-repeat="item in items track by $index"
+						class="col-lg-4 col-md-6 mb-4">
+						<div class="card h-100">
+							<a ui-sref="item({itemId:item.id})"><img class="img-fluid"
+								style="max-height: 100%; max-width: 100%;"
+								src="/img/products/{{item.id}}.jpg" alt=""></a>
+							<div class="card-body">
+								<h4 class="card-title">
+									<a href="#">{{item.styleItem.brand}}</a>
+								</h4>
+								<p class="card-text">{{item.description}}</p>
+								<h5>${{item.productPrice.price}}</h5>
+
+							</div>
+							<div class="card-footer">
+								<small class="text-muted">&#9733; &#9733; &#9733;
+									&#9733; &#9734;</small>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div ng-if="noResults == 'false'" class="row align-items-center">
+					<div class="col">
+						<ul class="pagination">
+							<li class="page-item"><a class="page-link"
+								ng-click="getPrevPage()">Prev</a></li>
+							<li class="page-item active bg-dark"><a class="page-link"
+								href="#">{{currentPage + 1}}</a></li>
+							<li class="page-item"><a class="page-link"
+								ng-click="getNextPage()">Next</a></li>
+							<li class="page-item"><a class="page-link"
+								ng-click="getLastPage()">Last</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+</div>
+<!-- /.container -->
