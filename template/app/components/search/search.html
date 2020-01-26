@@ -76,15 +76,15 @@
 						class="col-lg-4 col-md-6 mb-4">
 						<div class="card h-100">
 							<a ui-sref="item({itemId:item.id})"><img class="img-fluid"
-								style="max-height: 100%; max-width: 100%;"
+								 style="width: 160px; height: 320px;" 
 								src="/img/products/{{item.id}}.jpg" alt=""></a>
 							<div class="card-body">
 								<h4 class="card-title">
-									<a href="#">{{item.styleItem.brand}}</a>
+									<a ui-sref="item({itemId:item.id})">{{item.styleItem.brand}}</a>
 								</h4>
 								<p class="card-text">{{item.description}}</p>
-								<h5>${{item.productPrice.price}}</h5>
-
+								<h5>Rs {{item.productPrice.price *100}} <span ng-if="item.productPrice.inStock && item.productPrice.inStock=='No'" style="text-align:right; font-size:10px;">Out of Stock</span></h5>
+								
 							</div>
 							<div class="card-footer">
 								<small class="text-muted">&#9733; &#9733; &#9733;

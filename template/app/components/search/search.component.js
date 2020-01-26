@@ -45,6 +45,7 @@ const searchController = function($scope, $stateParams , databaseService, $locat
             	$("#loader").hide();
                 $scope.items = items.products;
                 $scope.numPages = items.noOfPages;
+                
                 if($scope.numPages > 0 )
                 	$scope.noResults = 'false';
                 else

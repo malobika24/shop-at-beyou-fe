@@ -61,20 +61,21 @@ const itemController = function($scope, $stateParams, databaseService, $location
 
     $scope.addToCart = function() {
         const userId = databaseService.guidHandler('load');
-        $scope.cart =localStorage.getItem(userId);
-        if ($scope.cart == null) {
-        	$scope.cart = [];
+        var cart =localStorage.getItem(userId);
+        if ((cart =='null' || cart=='')) {
+        	console.log('setting'+$scope.cart );
+        	cart = '[]';
         }
-        else{
-        	$scope.cart = JSON.parse($scope.cart);
-        }
-        _addCart();
-        localStorage.setItem(userId, JSON.stringify($scope.cart) );
-        console.log('cart'+$scope.cart[0].itemId);
+        var cartObj = JSON.parse(cart);
+        _addCart(cartObj);
+        localStorage.setItem(userId, JSON.stringify(cartObj) );
         $location.path('/cart');
     };
+    $scope.goBack = function() {
+    	  window.history.back();
+    };
     
-    function _addCart(){
+    function _addCart(cartObj){
     	var newProduct = {
 			 itemId: $scope.itemId,
 			 productDesc: $scope.item.description,
@@ -82,9 +83,7 @@ const itemController = function($scope, $stateParams, databaseService, $location
 			 quantity :1,
 			 price: $scope.item.productPrice.price
 	     };
-    	console.log('New'+newProduct.itemId);
-    	$scope.cart.push(newProduct);
-    	console.log('Item'+$scope.cart[0].itemId);
+    	cartObj.push(newProduct);
     }
     function _updateCart(){
 		 var newProduct = new function() {

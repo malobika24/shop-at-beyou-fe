@@ -25,8 +25,8 @@
                     <td class="muted center_text"><img width="30" ng-src="/img/products/{{item.itemId}}.jpg"></td>
                     <td>{{item.size}}</td>
                     <td>{{item.quantity}}</td>
-                    <td>${{item.price}}</td>
-                    <td>${{(item.price * item.quantity)}}</td>
+                    <td>Rs {{item.price*100}}</td>
+                    <td>Rs {{(item.price *100 * item.quantity)}}</td>
                 </tr>
 
                 <tr>

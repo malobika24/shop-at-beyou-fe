@@ -1,4 +1,11 @@
 <div class="container">
+<nav aria-label="breadcrumb">
+		<ol class="breadcrumb">
+			<li class="breadcrumb-item"><a href="/">Home</a></li>
+			<li class="breadcrumb-item"><a href ="" ng-click="goBack()">Collections</a></li>
+			<li class="breadcrumb-item active" aria-current="page" id="navLink">Item Details</li>
+		</ol>
+	</nav>
 
         <!-- Product Item Row -->
         <div class="row">
@@ -13,14 +20,14 @@
                     {{item.description}}
                 </p>
                 <hr class="line-style">
-				<h4 ng-if="item.productPrice.discount!=null"><s style="color:gray">${{item.productPrice.price}}</s> ({{item.productPrice.discount}}%) ${{item.productPrice.price - ((item.productPrice.price * item.productPrice.discount)/100)}} </h4>
-				<h4 ng-if="item.productPrice.discount==null">${{item.productPrice.price}}</h4>
+				<h4 ng-if="item.productPrice.discount!=null"><s style="color:gray">Rs {{item.productPrice.price *100}}</s> ({{item.productPrice.discount*100}}%) Rs {{(item.productPrice.price*100) - ((item.productPrice.price*100 * item.productPrice.discount*100)/100)}} </h4>
+				<h4 ng-if="item.productPrice.discount==null">Rs {{item.productPrice.price * 100}}</h4>
 				<p class="text-muted">inclusive of all taxes</p>
 				
 				<h5>SELECT SIZE</h5>
 				<button type="button" class="btn btn-light">{{item.attribute1Value}}</button>
 				<hr>
-				<div class="row">
+				<div class="row" ng-if="item.productPrice.inStock && item.productPrice.inStock=='Yes'">
 				<div class="col">
 				<button class="btn btn-primary" type="submit" ng-click="addToCart()">
                     Add to cart
@@ -34,6 +41,9 @@
                 </button>
 				</div> -->
 				</div>
+				<div class="row" ng-if="item.productPrice.inStock && item.productPrice.inStock=='No'">
+				<p class="text-muted">Out of Stock</p>
+				</div>
 				
                 <hr>
                 <h5>BEST OFFERS</h5>
@@ -43,8 +53,8 @@
                 	
                 </ul>
                 
-                <h5>15% Discount on Paypal Transactions</h5>
-				<p class="text-muted">Min Spend $100</p>
+                <h5>15% Discount on HDFC Card Transactions</h5>
+				<p class="text-muted">Min Spend Rs 5000</p>
 				
 				<hr>
 				<h5>PRODUCT DETAILS</h5>
