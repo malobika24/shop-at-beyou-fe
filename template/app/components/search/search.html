@@ -83,7 +83,7 @@
 									<a ui-sref="item({itemId:item.id})">{{item.styleItem.brand}}</a>
 								</h4>
 								<p class="card-text">{{item.description}}</p>
-								<h5>Rs {{item.productPrice.price *100}} <span ng-if="item.productPrice.inStock && item.productPrice.inStock=='No'" style="text-align:right; font-size:10px;">Out of Stock</span></h5>
+								<h5>Rs {{item.productPrice.price *100}} <span ng-if="item.productPrice.inStock && item.productPrice.inStock!='Yes'" style="text-align:right; font-size:10px; text-color:red">Out of Stock</span></h5>
 								
 							</div>
 							<div class="card-footer">

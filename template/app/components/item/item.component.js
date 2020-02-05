@@ -62,7 +62,7 @@ const itemController = function($scope, $stateParams, databaseService, $location
     $scope.addToCart = function() {
         const userId = databaseService.guidHandler('load');
         var cart =localStorage.getItem(userId);
-        if ((cart =='null' || cart=='')) {
+        if (cart =='null' || cart=='' || cart==null) {
         	console.log('setting'+$scope.cart );
         	cart = '[]';
         }
